@@ -40,11 +40,19 @@ for name, model in models:
 	names.append(name)
 	msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
 	print(msg)
+"""Compare Algorithms
+fig = plt.figure()
+fig.suptitle('Algorithm Comparison')
+ax = fig.add_subplot(111)
+plt.boxplot(results)
+ax.set_xticklabels(names)
+plt.show()"""	
 
 clf=LinearDiscriminantAnalysis()
 clf.fit(x_train,y_train)
 pred=clf.predict(x_test)
 print accuracy_score(y_test,pred)
+
 
 
 
